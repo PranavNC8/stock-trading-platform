@@ -7,7 +7,8 @@ function Hero() {
       {/* TOP BAR */}
       <div className="container d-flex justify-content-between align-items-center mb-5">
         <h5 className="mb-0">Support Portal</h5>
-        <Link to="/support/tickets" className="text-white">
+
+        <Link to="/support" className="text-white text-decoration-none">
           Track Tickets
         </Link>
       </div>
@@ -16,7 +17,7 @@ function Hero() {
       <div className="container">
         <div className="row gx-5">
 
-          {/* LEFT SECTION */}
+          {/* LEFT */}
           <div className="col-7">
             <h3 className="mb-4">
               Search for an answer or browse help topics
@@ -32,32 +33,32 @@ function Hero() {
             />
 
             <div className="d-flex flex-wrap gap-3">
-              <Link to="/support/account-opening" className="text-white">
+              <Link to="/support" className="text-white text-decoration-none">
                 Track account opening
               </Link>
-              <Link to="/support/segment-activation" className="text-white">
+              <Link to="/support" className="text-white text-decoration-none">
                 Track segment activation
               </Link>
-              <Link to="/support/intraday-margins" className="text-white">
+              <Link to="/support" className="text-white text-decoration-none">
                 Intraday margins
               </Link>
-              <Link to="/support/kite-manual" className="text-white">
+              <Link to="/support" className="text-white text-decoration-none">
                 Kite user manual
               </Link>
             </div>
           </div>
 
-          {/* RIGHT SECTION */}
+          {/* RIGHT */}
           <div className="col-5">
             <h5 className="mb-3">Featured</h5>
             <ol className="ps-3">
               <li className="mb-2">
-                <Link to="/support/featured/takeovers" className="text-white">
+                <Link to="/support" className="text-white text-decoration-none">
                   Current takeovers and delisting – January 2024
                 </Link>
               </li>
               <li>
-                <Link to="/support/featured/intraday" className="text-white">
+                <Link to="/support" className="text-white text-decoration-none">
                   Latest intraday leverages – MIS & CO
                 </Link>
               </li>
