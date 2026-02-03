@@ -1,23 +1,23 @@
-import { Link } from "react-router-dom";
-
 function Hero() {
   return (
     <section className="container-fluid py-5" id="supportHero">
-
       {/* TOP BAR */}
       <div className="container d-flex justify-content-between align-items-center mb-5">
         <h5 className="mb-0">Support Portal</h5>
 
-        <Link to="/support" className="text-white text-decoration-none">
+        {/* was <a href="#"> */}
+        <button
+          type="button"
+          className="btn btn-link text-white p-0 text-decoration-none"
+        >
           Track Tickets
-        </Link>
+        </button>
       </div>
 
       {/* MAIN CONTENT */}
       <div className="container">
         <div className="row gx-5">
-
-          {/* LEFT */}
+          {/* LEFT SECTION */}
           <div className="col-7">
             <h3 className="mb-4">
               Search for an answer or browse help topics
@@ -33,38 +33,41 @@ function Hero() {
             />
 
             <div className="d-flex flex-wrap gap-3">
-              <Link to="/support" className="text-white text-decoration-none">
+              {/* ALL were <a href="#"> */}
+              <button className="btn btn-link text-white p-0 text-decoration-none">
                 Track account opening
-              </Link>
-              <Link to="/support" className="text-white text-decoration-none">
+              </button>
+
+              <button className="btn btn-link text-white p-0 text-decoration-none">
                 Track segment activation
-              </Link>
-              <Link to="/support" className="text-white text-decoration-none">
+              </button>
+
+              <button className="btn btn-link text-white p-0 text-decoration-none">
                 Intraday margins
-              </Link>
-              <Link to="/support" className="text-white text-decoration-none">
+              </button>
+
+              <button className="btn btn-link text-white p-0 text-decoration-none">
                 Kite user manual
-              </Link>
+              </button>
             </div>
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT SECTION */}
           <div className="col-5">
             <h5 className="mb-3">Featured</h5>
             <ol className="ps-3">
               <li className="mb-2">
-                <Link to="/support" className="text-white text-decoration-none">
+                <button className="btn btn-link text-white p-0 text-decoration-none text-start">
                   Current takeovers and delisting – January 2024
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/support" className="text-white text-decoration-none">
+                <button className="btn btn-link text-white p-0 text-decoration-none text-start">
                   Latest intraday leverages – MIS & CO
-                </Link>
+                </button>
               </li>
             </ol>
           </div>
-
         </div>
       </div>
     </section>
