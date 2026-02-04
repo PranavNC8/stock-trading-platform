@@ -12,29 +12,26 @@ function Login() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include", // 🔴 VERY IMPORTANT (cookie)
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "https://stock-backend-1feb.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await res.json();
 
       if (!res.ok) {
         setError(data.msg || "Login failed");
-        setLoading(false);
         return;
       }
 
-      // ✅ NO token storage
-      // ✅ NO localStorage
-      // ✅ Cookie is already set by backend
-
-      // 🔁 Redirect to dashboard app (port 3001)
-      window.location.href = "http://localhost:3001";
+      // ✅ REDIRECT TO DASHBOARD WITH TOKEN
+      window.location.href = `https://stock-trading-platform-s9lt.vercel.app/?token=${data.token}`;
     } catch (err) {
       setError("Server error");
     } finally {
@@ -54,9 +51,7 @@ function Login() {
       <div className="row justify-content-center">
         <div className="col-md-5 col-lg-4">
           <div className="card border-0 shadow-sm p-4">
-            <h5 className="text-center mb-4 fw-normal">
-              Welcome back
-            </h5>
+            <h5 className="text-center mb-4 fw-normal">Welcome back</h5>
 
             <form onSubmit={handleLogin}>
               <div className="mb-3">
@@ -90,9 +85,7 @@ function Login() {
             </form>
 
             {error && (
-              <p className="text-danger text-center mt-3">
-                {error}
-              </p>
+              <p className="text-danger text-center mt-3">{error}</p>
             )}
 
             <p className="text-center mt-3 mb-0 text-muted">

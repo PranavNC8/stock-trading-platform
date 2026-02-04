@@ -1,16 +1,29 @@
-export const checkAuth = async () => {
-  try {
-    const res = await fetch("http://localhost:8000/api/auth/me", {
-      method: "GET",
-      credentials: "include", // 🔴 VERY IMPORTANT
-    });
+export const saveTokenFromURL = () => {
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get("token");
 
-    if (!res.ok) {
-      throw new Error("Not authenticated");
-    }
+  if (token) {
+    localStorage.setItem("token", token);
 
-    return await res.json();
-  } catch (err) {
-    return null;
+    // remove token from URL
+    window.history.replaceState(
+      {},
+      document.title,
+      window.location.pathname
+    );
   }
+};
+
+export const getToken = () => {
+  return localStorage.getItem("token");
+};
+
+export const isAuthenticated = () => {
+  return !!getToken();
+};
+
+export const logout = () => {
+  localStorage.removeItem("token");
+  window.location.href =
+    "https://YOUR_FRONTEND_VERCEL_URL/login";
 };
