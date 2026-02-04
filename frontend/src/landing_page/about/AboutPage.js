@@ -6,8 +6,6 @@ function AboutPage() {
         <Hero></Hero>
         <Team></Team>
         </>
-
      );
 }
-
 export default AboutPage;

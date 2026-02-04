@@ -1,57 +1,48 @@
 function Team() {
-  return (
-    <section className="container my-5">
-      <h2 className="text-center fw-normal mb-5">
-        People
-      </h2>
-
-      <div className="row justify-content-center">
-
-        {/* TEAM MEMBER */}
-        <div className="col-md-4 text-center">
-          <img
-            src="https://zerodha.com/static/images/about/nithin-kamath.jpg"
-            alt="Nithin Kamath"
-            className="rounded-circle mb-3"
-            width="160"
-            height="160"
-          />
-          <h5 className="fw-normal mb-1">Nithin Kamath</h5>
-          <p className="text-muted mb-2">Founder & CEO</p>
-
-          <div className="d-flex justify-content-center gap-3">
-            <a
-              href="https://zerodha.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-decoration-none text-primary"
+    return (
+        <div className="container mt-5">
+            {/* SECTION TITLE */}
+            <div className="row pt-5 mb-4 border-top">
+                <h1 className="text-center">People</h1>
+            </div>
+            {/* CONTENT */}
+            <div
+                className="row text-muted align-items-center"
+                style={{ lineHeight: "1.8", fontSize: "1.1em" }}
             >
-              Homepage
-            </a>
-
-            <a
-              href="https://twitter.com/Nithin0dha"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-decoration-none text-primary"
-            >
-              Twitter
-            </a>
-
-            <a
-              href="https://tradingqna.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-decoration-none text-primary"
-            >
-              TradingQnA
-            </a>
-          </div>
+                {/* LEFT PROFILE */}
+                <div className="col-5 text-center p-5">
+                    <img
+                        src="media/images/nithinkamath.jpg"
+                        alt="Nithin Kamath"
+                        style={{ borderRadius: "50%", width: "45%" }}
+                        className="mb-4"
+                    />
+                    <h4 className="mb-1">Nithin Kamath</h4>
+                    <h6>Founder & CEO</h6>
+                </div>
+                {/* RIGHT TEXT */}
+                <div className="col-7 p-5">
+                    <p>
+                        Nithin bootstrapped and founded Zerodha in 2010 to overcome the
+                        hurdles he faced during his decade-long stint as a trader. Today,
+                        Zerodha has changed the landscape of the Indian broking industry.
+                    </p>
+                    <p>
+                        He is a member of the SEBI Secondary Market Advisory Committee
+                        (SMAC) and the Market Data Advisory Committee (MDAC).
+                    </p>
+                    <p>Playing basketball is his zen.</p>
+                    <p>
+                        Connect on{" "}
+                        <a href="#" className="text-decoration-none">Homepage</a> /{" "}
+                        <a href="#" className="text-decoration-none">TradingQnA</a> /{" "}
+                        <a href="#" className="text-decoration-none">Twitter</a>
+                    </p>
+                </div>
+            </div>
         </div>
-
-      </div>
-    </section>
-  );
+    );
 }
-
 export default Team;
+
