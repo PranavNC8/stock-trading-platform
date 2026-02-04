@@ -13,21 +13,20 @@ const PORT = process.env.PORT || 8000;
 const MONGO_URL = process.env.MONGO_URL;
 
 /* ---------- MIDDLEWARE ---------- */
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "https://stock-trading-platform-beta.vercel.app"
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
-app.options("*", cors());
+/* ---------- MIDDLEWARE ---------- */
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://stock-trading-platform-beta.vercel.app",
+    "https://stock-trading-platform-s9lt.vercel.app"
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+}));
 
 app.use(express.json());
 app.use(cookieParser());
+
 
 
 /* ---------- TEST ROUTE ---------- */
