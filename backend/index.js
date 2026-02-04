@@ -15,7 +15,12 @@ const MONGO_URL = process.env.MONGO_URL;
 /* ---------- MIDDLEWARE ---------- */
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "https://your-frontend.vercel.app",
+      "https://stock-trading-platform-s9lt.vercel.app"
+    ],
     credentials: true,
   })
 );

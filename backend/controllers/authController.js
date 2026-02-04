@@ -57,17 +57,9 @@ exports.login = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    // ✅ SET TOKEN IN COOKIE
-    res.cookie("token", token, {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: false, // true in production
-      maxAge: 24 * 60 * 60 * 1000,
-    });
-
-    // ❌ DO NOT send token in JSON
+    // ✅ SEND TOKEN
     res.json({
-      msg: "Login successful",
+      token,
       user: {
         id: user._id,
         name: user.name,
@@ -79,6 +71,7 @@ exports.login = async (req, res) => {
     res.status(500).json({ msg: "Server error" });
   }
 };
+
 
 // ---------------- GET CURRENT USER ----------------
 exports.me = async (req, res) => {
