@@ -18,12 +18,13 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://your-frontend.vercel.app",
-      "https://stock-trading-platform-s9lt.vercel.app"
+      "https://stock-trading-platform-beta.vercel.app"
     ],
-    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+app.options("*", cors());
 
 app.use(express.json());
 app.use(cookieParser());
