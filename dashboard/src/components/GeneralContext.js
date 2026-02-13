@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
-import axios from "axios";
-
+import api from "../utils/api";
 import BuyActionWindow from "./BuyActionWindow";
 
 const GeneralContext = createContext();
@@ -12,27 +11,24 @@ export const GeneralContextProvider = (props) => {
   const [holdings, setHoldings] = useState([]);
   const [orders, setOrders] = useState([]);
 
-
-  // Fetch holdings from backend
   const fetchHoldings = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/allholdings");
+      const res = await api.get("/allholdings");
       setHoldings(res.data);
     } catch (err) {
-      console.error(err);
+      console.error("Holdings fetch error:", err);
     }
   };
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/allorders");
+      const res = await api.get("/allorders");
       setOrders(res.data);
     } catch (err) {
-      console.error(err);
+      console.error("Orders fetch error:", err);
     }
   };
 
-  // Load holdings on app start
   useEffect(() => {
     fetchHoldings();
     fetchOrders();
@@ -54,13 +50,12 @@ export const GeneralContextProvider = (props) => {
         openBuyWindow,
         closeBuyWindow,
         holdings,
-        fetchHoldings, // 👈 Important
-        orders,        // 👈 add
+        orders,
+        fetchHoldings,
         fetchOrders,
       }}
     >
       {props.children}
-
       {isBuyWindowOpen && <BuyActionWindow uid={selectedStockUID} />}
     </GeneralContext.Provider>
   );

@@ -1,3 +1,6 @@
+// ==============================
+// SAVE TOKEN FROM URL (once)
+// ==============================
 export const saveTokenFromURL = () => {
   const params = new URLSearchParams(window.location.search);
   const token = params.get("token");
@@ -5,7 +8,7 @@ export const saveTokenFromURL = () => {
   if (token) {
     localStorage.setItem("token", token);
 
-    // remove token from URL
+    // Remove token from URL after saving
     window.history.replaceState(
       {},
       document.title,
@@ -14,16 +17,27 @@ export const saveTokenFromURL = () => {
   }
 };
 
+// ==============================
+// GET TOKEN
+// ==============================
 export const getToken = () => {
   return localStorage.getItem("token");
 };
 
+// ==============================
+// CHECK AUTHENTICATION
+// ==============================
 export const isAuthenticated = () => {
   return !!getToken();
 };
 
+// ==============================
+// LOGOUT
+// ==============================
 export const logout = () => {
   localStorage.removeItem("token");
+
+  // redirect to deployed frontend login page
   window.location.href =
-    "https://YOUR_FRONTEND_VERCEL_URL/login";
+    process.env.REACT_APP_FRONTEND_URL + "/login";
 };
